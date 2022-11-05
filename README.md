@@ -14,15 +14,14 @@ Best practices [cookiecutter](https://github.com/audreyr/cookiecutter) template 
 
 ## Quickstart
 ```sh
-# Install pipx if pipenv and cookiecutter are not installed
-python3 -m pip install pipx
-python3 -m pipx ensurepath
+# Install cookiecutter
+pip install cookiecutter
 
-# Install pipenv using pipx
-pipx install pipenv
+# Install venv
+pip install virtualenv
 
 # Use cookiecutter to create project from this template
-pipx run cookiecutter gh:sourcery-ai/python-best-practices-cookiecutter
+cookiecutter gh:ds4data/python-best-practices-cookiecutter
 
 # Enter project directory
 cd <repo_name>
@@ -30,10 +29,14 @@ cd <repo_name>
 # Initialise git repo
 git init
 
+# Create a virtualenv and activate it
+python -m venv .env
+./.env/Scripts/activate
+
 # Install dependencies
-pipenv install --dev
+pip install -r requirements.txt
 
 # Setup pre-commit and pre-push hooks
-pipenv run pre-commit install -t pre-commit
-pipenv run pre-commit install -t pre-push
+pre-commit install -t pre-commit
+pre-commit install -t pre-push
 ```
